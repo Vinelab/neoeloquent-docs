@@ -128,7 +128,7 @@ User::withTrashed()
       ->forceDelete();
 ```
 
-###### Restore Softe Deleted Node
+###### Restore Soft Deleted Node
 To restore a soft deleted node you should use `restore()` method:
 
 ```php
