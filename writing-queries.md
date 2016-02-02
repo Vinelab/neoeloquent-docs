@@ -59,4 +59,18 @@ or
 
 `User::orderBy('updated_at', 'Asc')->get();`
 
+##### Count
+You can use `count()` to have a node count!
+
+`User::count();`
+
+##### Example
+
+>Note: `use` allow passing a external variable to the closure function.
+
+```php
+User::where('active', true)->whereHas('ownsAccount', function ($query) use ($accountId) {
+        $query->where((new Account())->id, $accountId);
+        })->skip($offset)->take($limit)->orderBy('updated_at')->get();
+```
 
