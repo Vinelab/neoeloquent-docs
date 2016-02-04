@@ -47,6 +47,7 @@ User::findBy('email', 'alenemail@mail.com');
 ```
 
 And you can use operators:
+
 ```php
 User::findBy('age', '<=', 27);
 ```
@@ -81,7 +82,7 @@ Calling `update()` will suffice to update the specified properties, but you will
 ##### Fill
 Or you can use `fill()` to fill the class attributes and then save to storage. If no corresponding node exists in storage a new instance is created.
 
->It is important to note that `fill()` will only fill the class's attributes, and then you will need to call `save()` on the
+>It is important to note that `fill()` will only fill the class's attributes, if available in the fillable array, and then you will need to call `save()` on the
 >class instance in order to persist it in storage.
 
 ``` php
