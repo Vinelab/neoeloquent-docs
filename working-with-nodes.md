@@ -12,13 +12,12 @@ Assuming we have a User class
 
 It is as simple as calling the `create()` method on a User instance while passing the properties that it should include:
 ``` php
-  User::create(
-        'id'      =>    2434,
-        'name'    =>    'Alen',
-        'email'   =>    'alenemail@mail.com',
-        'age'     =>    27,
-        'active'  =>    true
-  );
+$user = User::create(
+              'name'    =>    'Alen',
+              'email'   =>    'alenemail@mail.com',
+              'age'     =>    27,
+              'active'  =>    true
+        );
 ```
 
 #### Read
@@ -27,17 +26,28 @@ A read operation can be performed using different methods depending on the resul
 ##### Where
 Retreiving a collection of nodes from storage using the `where()` method and an adequate execution comand (for more on execution comands check [Key Concepts]):
 
-`User::where('id', 2434)->get();`
+```php
+User::where('id', $user->getKey())->get();
+```
 
 ##### Find
 Retreiving one node from storage by id:
 
-`User::find(2434);`
+```php
+User::find($user->getKey());
+```
 
 ##### FindBy
 Retreiving one node from storage by property:
 
-`User::findBy('email', 'alenemail@mail.com');`
+```php
+User::findBy('email', 'alenemail@mail.com');
+```
+
+And you can use operators:
+```php
+User::findBy('age', '<=', 27);
+```
 
 #### Update
 An update operation can be done in two forms:
@@ -55,7 +65,11 @@ Calling `update()` will suffice to update the specified properties, but you will
 ```
 
 ##### Fill
-Or you can use `fill()` to fill the class attributes and then save to storage. If no corresponding node exists in storage a new instance is created. It is important to note that `fill()` will only fill the class's attributes, and then you will need to call `save()` on the class instance in order to persist it in storage:
+Or you can use `fill()` to fill the class attributes and then save to storage. If no corresponding node exists in storage a new instance is created.
+
+>It is important to note that `fill()` will only fill the class's attributes, and then you will need to call `save()` on the
+>class instance in order to persist it in storage.
+
 ``` php
   User::fill([
         'name'    =>   'Alen',
@@ -74,11 +88,11 @@ NeoEloquent allow, permanent and soft delete operations.
 In order to permanently delete a node, you should query the node and then call `delete()`:
 
 ```php
-User::find(2434)
-      ->delete();
+User::find($user->getKey())->delete();
 ```
 
 ##### Soft Delete
+Soft delete is a way to exclude entities from the result. The behaviour is that of deleting an entity while in reality it still exists.
 In order to allow soft delete on a node class, you should use the `SoftDeletes` trait and add a protected '$dates' attribute to the class. Like so:
 
 ```php
@@ -98,7 +112,7 @@ class User extends Node
 Then you can soft delete a node using the same syntax:
 
 ```php
-User::find(2434)
+User::find($user->getKey())
       ->delete();
 ```
 
@@ -107,7 +121,7 @@ Using the `withTrashed()` method will returned soft deleted nodes along with exs
 
 ```php
 User::withTrashed()
-      ->where('id', 2434)
+      ->where('id', $user->getKey())
       ->get();
 ```
 
@@ -115,7 +129,8 @@ Using the `onlyTrashed()` method will returned only soft deleted nodes:
 
 ```php
 User::onlyTrashed()
-      ->where('id', 2434)
+      ->where('age', '<=', 30)
+      ->where('age', '>=', 25)
       ->get();
 ```
 
