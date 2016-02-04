@@ -15,10 +15,10 @@ class User extends Node {}
 It is as simple as calling the `create()` method on a User instance while passing the properties that it should include:
 ``` php
 $user = User::create(
-              'name'    =>    'Alen',
-              'email'   =>    'alenemail@mail.com',
-              'age'     =>    27,
-              'active'  =>    true
+              'name'      =>    'Alen',
+              'email'     =>    'alenemail@mail.com',
+              'age'       =>    27,
+              'is_active' =>    true
         );
 ```
 
@@ -72,10 +72,10 @@ Calling `update()` will suffice to update the specified properties, but you will
 ``` php
   User::where('id', 2434)
         ->update(
-          'name'    =>   'Alen',
-          'email'   =>   'alennewemail@mail.com',
-          'age'     =>   27,
-          'active'  =>   true
+          'name'      =>   'Alen',
+          'email'     =>   'alennewemail@mail.com',
+          'age'       =>   27,
+          'is_active' =>   true
   );
 ```
 
@@ -87,10 +87,10 @@ Or you can use `fill()` to fill the class attributes and then save to storage. I
 
 ``` php
   User::fill([
-        'name'    =>   'Alen',
-        'email'   =>   'alennewemail@mail.com',
-        'age'     =>   27,
-        'active'  =>   true
+        'name'      =>   'Alen',
+        'email'     =>   'alennewemail@mail.com',
+        'age'       =>   27,
+        'is_active' =>   true
   ]);
 
   User::save();

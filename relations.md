@@ -53,6 +53,23 @@ Where `Phone::user()` is an 'INCOMING' relation from `:User` to `:Phone`.
 
 > A One-To-One relation is unique, so if a new/different node is saved it will replace the previous one.
 
+For existing nodes, persisting a One-To-One relationship can be done associating a node to another:
+
+Using the node:
+
+```php
+$user = User::create(...);
+$phone = Phone::create(...);
+
+$user->phone()->associate($phone);
+```
+
+Or the id:
+
+```php
+$user->phone()->associate($phone->getKey());
+```
+
 ### One-To-Many Relations
 
 One to many relations are relations with a cardinality of 1 on the start/parent node and * on the end/related node. Declaration of One-To-Many relations goes as follow:
@@ -82,6 +99,29 @@ class Country extends Node
 ```
 
 Where `Country::citizens()` is an 'INCOMING' relation from `:User` to `:Country`.
+
+Persisting a One-To-Many relationship can be done attaching a node to another:
+
+Using the node:
+
+```php
+$user = User::create(...);
+$country = Country::create(...);
+
+$user->country()->attach($country));
+```
+
+Or the id:
+
+```php
+$user->country()->attach($country->getKey());
+```
+
+If you are using the invers of the relation, then you should use associate:
+
+```php
+$country->citizens()->associate($user);
+```
 
 ### Many-To-Many Relations
 
@@ -113,8 +153,21 @@ class Interest extends Node
 
 Where `Interest::interestedUsers()` is an 'INCOMING' relation from `:User` to `:Interest`.
 
+Persisting a Many-To-Many relationship can be done attaching a node to another:
+
+Using the node:
+
+```php
+$user = User::create(...);
+$interest = Interest::create(...);
+
+$user->insterests()->attach($interest->getKey()));
+```
+
 > Please note that it is not compulsary to define invers relations as long as you do not intend to create and/or read in the
 > invers direction.
+
+In general, use associate when creating a relation to an end node of cardinality equal to 1, and attach to an end node of a * cardinality.
 
 ### Usage
 
@@ -125,6 +178,8 @@ Assuming we have a User class:
 ```php
 class User extends Node
 {
+    protected $fillable = ['name', 'email', 'age', 'is_active'];
+
     public function ownsAccounts ()
     {
         return $this->hasMany('...\Account', 'OWNS_ACCOUNT');
