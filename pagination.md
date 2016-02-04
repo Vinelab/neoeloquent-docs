@@ -1,17 +1,17 @@
 ### Pagination
 
-#### Limit/Take
-Is the analogue for limit:
+#### Limit
+Specifies the limit the query should account for. `take()`, is an alias for limit that you can also use following the same syntax.
 
 ```php
-User::take(15)->get();
+User::limit(15)->get();
 ```
 
-#### Offset/Skip
-Is the analogue for offset
+#### Offset
+Specifies the offset the query should account for. `skip()`, is an alias for offset that you can also use following the same syntax.
 
 ```php
-User::skip(5)->get();
+User::offset(5)->get();
 ```
 
 #### Count
