@@ -1,6 +1,6 @@
-### Working With Nodes
+## Working With Nodes
 
-#### Create
+### Create
 
 If you just landed here, you should go through [Nodes], to make some sense of basic nodes concepts.
 
@@ -22,7 +22,7 @@ $user = User::create(
         );
 ```
 
-#### Read
+### Read
 A read operation can be performed using different methods depending on the result you are looking for. We recommend that you check the [key concept] for differences amon these.
 
 ##### Where
@@ -32,14 +32,14 @@ Retreiving a collection of nodes from storage using the `where()` method and an 
 User::where('id', $user->getKey())->get();
 ```
 
-##### Find
+#### Find
 Retreiving one node from storage by id:
 
 ```php
 User::find($user->getKey());
 ```
 
-##### FindBy
+#### FindBy
 Retreiving one node from storage by property:
 
 ```php
@@ -52,7 +52,7 @@ And you can use operators:
 User::findBy('age', '<=', 27);
 ```
 
-##### OrderBy
+#### OrderBy
 Should be positioned just before the execution command (e.g. get(), first(), count(), etc.), descending order being the default. The order can be specified as the second argument:
 
 ```php
@@ -65,7 +65,7 @@ or
 User::orderBy('updated_at', 'Asc')->get();
 ```
 
-#### Update
+### Update
 An update operation can be done in two forms:
 
 Calling `update()` will suffice to update the specified properties, but you will need to retrieve the node from storage:
@@ -79,7 +79,7 @@ Calling `update()` will suffice to update the specified properties, but you will
   );
 ```
 
-##### Fill
+#### Fill
 Or you can use `fill()` to fill the class attributes and then save to storage. If no corresponding node exists in storage a new instance is created.
 
 >It is important to note that `fill()` will only fill the class's attributes, if available in the fillable array, and then you will need to call `save()` on the
@@ -96,7 +96,7 @@ Or you can use `fill()` to fill the class attributes and then save to storage. I
   User::save();
 ```
 
-#### Delete
+### Delete
 NeoEloquent allows permanent and soft delete operations.
 
 In order to permanently delete a node, you should query the node and then call `delete()`:
@@ -105,7 +105,7 @@ In order to permanently delete a node, you should query the node and then call `
 User::find($user->getKey())->delete();
 ```
 
-##### Soft Delete
+#### Soft Delete
 Soft delete is a way to exclude entities from the result. The behaviour is that of deleting an entity while in reality it still exists.
 In order to allow soft delete on a node class, you should use the `SoftDeletes` trait and add a protected '$dates' attribute to the class. Like so:
 
@@ -131,7 +131,7 @@ Then you can soft delete a node using the same syntax:
 User::find($user->getKey())->delete();
 ```
 
-###### Querying Soft Deleted Nodes
+##### Querying Soft Deleted Nodes
 Using the `withTrashed()` method will returned soft deleted nodes along with exsiting nodes:
 
 ```php
@@ -149,7 +149,7 @@ User::onlyTrashed()
       ->get();
 ```
 
-###### Force Delete
+##### Force Delete
 In order to permanently delete a soft deleted node you will need to use the `forceDelete()` method:
 
 ```php
@@ -158,7 +158,7 @@ User::withTrashed()
       ->forceDelete();
 ```
 
-###### Restore Soft Deleted Node
+##### Restore Soft Deleted Node
 To restore a soft deleted node you should use `restore()` method:
 
 ```php

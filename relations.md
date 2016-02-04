@@ -7,6 +7,7 @@ Main relations type are:
 - Many-To-Many
 
 // Review
+
 We recommend that special care should be put into naming relations, as a general guidline we recommend:
 - Explicitly infer cardinality
 - Explicitly infer direction (HOW TO?)
@@ -21,6 +22,12 @@ $relation = $user->address()->save($address);
 Where $user is a `:User` node, `address()` is the user class method that define the relation and it's type and $address is a `:Address` node.
 
 > Saving a relation to a non existent node will create the node.
+
+### Detaching a Relation
+
+```php
+$user->address()->detach($address);
+```
 
 ### One-To-One Relations
 
@@ -165,9 +172,27 @@ $user->insterests()->attach($interest->getKey()));
 ```
 
 > Please note that it is not compulsary to define invers relations as long as you do not intend to create and/or read in the
-> invers direction.
+invers direction.
 
 In general, use associate when creating a relation to an end node of cardinality equal to 1, and attach to an end node of a * cardinality.
+
+### Dynamic Properties
+
+Dynamic properties is a simpl way to access the relation as if it were a property.
+
+```php
+
+// return the user's interests as a collection
+$user->interests;
+
+// return the interest's users as a collection
+$user->interests;
+
+// return the user's country
+$user->countryOfOrigin;
+```
+
+> If you noticed, dynamic properties return type depends on the relation being queried, if it has a many cardinality it retuns a collection, otherwise it returns a single node object.
 
 ### Usage
 

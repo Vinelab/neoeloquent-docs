@@ -1,3 +1,5 @@
+## Notes
+
 - Use variable reference
 
 $user = User::create([
