@@ -8,7 +8,9 @@ If you just landed here, you should go through [Nodes], to make some sense of ba
 
 Assuming we have a User class
 
-`class User extends Node {}`
+```php
+class User extends Node {}
+```
 
 It is as simple as calling the `create()` method on a User instance while passing the properties that it should include:
 ``` php
@@ -49,10 +51,22 @@ And you can use operators:
 User::findBy('age', '<=', 27);
 ```
 
+##### OrderBy
+Should be positioned just before the execution command (e.g. get(), first(), count(), etc.), descending order being the default. The order can be specified as the second argument:
+
+```php
+User::orderBy('updated_at')->get();
+```
+
+or
+
+```php
+User::orderBy('updated_at', 'Asc')->get();
+```
+
 #### Update
 An update operation can be done in two forms:
 
-##### Update
 Calling `update()` will suffice to update the specified properties, but you will need to retrieve the node from storage:
 ``` php
   User::where('id', 2434)
@@ -82,9 +96,8 @@ Or you can use `fill()` to fill the class attributes and then save to storage. I
 ```
 
 #### Delete
-NeoEloquent allow, permanent and soft delete operations.
+NeoEloquent allows permanent and soft delete operations.
 
-##### Delete
 In order to permanently delete a node, you should query the node and then call `delete()`:
 
 ```php
@@ -96,6 +109,8 @@ Soft delete is a way to exclude entities from the result. The behaviour is that 
 In order to allow soft delete on a node class, you should use the `SoftDeletes` trait and add a protected '$dates' attribute to the class. Like so:
 
 ```php
+use Vinelab\NeoEloquent\Eloquent\SoftDeletes;
+
 class User extends Node
 {
     use SoftDeletes;
@@ -112,8 +127,7 @@ class User extends Node
 Then you can soft delete a node using the same syntax:
 
 ```php
-User::find($user->getKey())
-      ->delete();
+User::find($user->getKey())->delete();
 ```
 
 ###### Querying Soft Deleted Nodes
@@ -139,7 +153,7 @@ In order to permanently delete a soft deleted node you will need to use the `for
 
 ```php
 User::withTrashed()
-      ->find(2434)
+      ->find($user->getKey())
       ->forceDelete();
 ```
 
@@ -148,7 +162,7 @@ To restore a soft deleted node you should use `restore()` method:
 
 ```php
 User::withTrashed()
-      ->find(2434)
+      ->find($user->getKey())
       ->restore();
 ```
 
