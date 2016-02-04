@@ -178,7 +178,7 @@ In general, use associate when creating a relation to an end node of cardinality
 
 ### Dynamic Properties
 
-Dynamic properties is a simpl way to access the relation as if it were a property.
+Dynamic properties is a simple way to access the relation as if it were a property.
 
 ```php
 
@@ -192,7 +192,7 @@ $user->interests;
 $user->countryOfOrigin;
 ```
 
-> If you noticed, dynamic properties return type depends on the relation being queried, if it has a many cardinality it retuns a collection, otherwise it returns a single node object.
+> If you noticed, dynamic properties return type depends on the relation being queried, if it has a many cardinality it retuns a collection of node objects, otherwise it returns a single node object.
 
 ### Usage
 
