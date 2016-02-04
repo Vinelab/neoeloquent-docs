@@ -38,4 +38,4 @@ Eager loading:
 $user->with('interests')->where('is_active', =, true)->get();
 ```
 
-The above query will return all active user with their interested as a relation in the node object.
+The above query will return all active users with their interestes as a relation in the node object.
