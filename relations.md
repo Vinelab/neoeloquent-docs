@@ -254,3 +254,32 @@ User::whereHas('ownsAccounts', function($query){
 ```
 
 You can chain multiple `whereHas()` for more complex queries, you can use the `orWhereHas()` method and even nest multiple closure functions.
+
+#### Relation Properties
+Just like a node, a relation can hold proprties:
+
+you can add properties to a relation:
+
+```php
+$relation = $user->countryOfOrigin()->save($country);
+
+$relation->birthday = '1987-05-11';
+$relation->town = 'Zahle';
+```
+
+You can access it's properties:
+
+```php
+$relation = $user->countryOfOrigin()->edge();
+$birthday = $relation->birthday;
+```
+
+You may also specify the node at the end of the relation:
+
+```php
+$interest = Interest::where('title', 'sports')->first();
+
+$relation = $user->interests()->edge($interest);
+
+$priority = $relation->priority;
+```
