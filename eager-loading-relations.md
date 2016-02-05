@@ -39,3 +39,14 @@ $user->with('interests')->where('is_active', =, true)->get();
 ```
 
 The above query will return all active users with their interestes as a relation in the node object.
+
+You can specify any amount of related relations to be eager loaded:
+
+```php
+$user->with('interests', 'countryOfOrigin')->where('is_active', = , true)->get();
+```
+You can even eager load nested relations:
+
+```php
+$user->with('interests.category', 'countryOfOrigin')->where('is_active', = , true)->get();
+```
