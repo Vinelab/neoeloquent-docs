@@ -1,11 +1,5 @@
 ## Collections
 
-    * Introduction
-    * Creating Collections
-    * Available Methods
-
-### Introduction
-
 The `Vinelab\NeoEloquent\Support\Collection` class provides a fluent, convenient wrapper for working with arrays of data. For example, check out the following code. We'll use the `collect` helper to create a new collection instance from the array, run the `strtoupper` function on each element, and then remove all empty elements:
 
 ```php
