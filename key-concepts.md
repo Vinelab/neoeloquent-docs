@@ -75,9 +75,9 @@ class User extends Node
 ### Collections
 
 A `Collection` class implements `ArrayAccess`, `Arrayable`, `Countable`, `IteratorAggregate` among other interfaces.
-Basically a `Collection` is returned whenever an [executing commands] is used for retrieving multiple results.
+Basically a `Collection` is returned whenever an executing commands is used for retrieving multiple results.
 
-The `Collection` class provides [a variety of helpful methods] for working with your NeoEloquent results.
+The `Collection` class provides [a variety of helpful methods](https://github.com/Vinelab/neoeloquent-docs/blob/draft-docs/collections.md) for working with your NeoEloquent results.
 
 ### Executing Commands
 
