@@ -6,11 +6,7 @@ Main relations type are:
 - One-To-Many
 - Many-To-Many
 
-// Review
-
-We recommend that special care should be put into naming relations, as a general guidline we recommend:
-- Explicitly infer cardinality
-- Explicitly infer direction (HOW TO?)
+We recommend that special care should be put into naming relations methods, as a general guidline we recommend it to be readable in a fluent context i.e. method chaining.
 
 ### Creating a Relation
 
