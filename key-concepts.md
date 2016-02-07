@@ -84,6 +84,7 @@ The `Collection` class provides [a variety of helpful methods](https://github.co
 Executing commands finalizes NeoElquent's builder query. Theses commands sends the fluently built query into execution.
 These commands are:
 
+|---------------|---------------|
 | all           | first         |
 | count         | firstOrFail   |
 | find          | get           |
