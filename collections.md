@@ -27,6 +27,8 @@ For the remainder of this documentation, we'll discuss each method available on 
 
 You may select any method from this table to see an example of its usage:
 
+|           |               |               |
+|-----------|---------------|---------------|
 | all       | intersect     | search        |
 | avg       | isEmpty       | shift         |
 | chunk     | keyBy         | shuffle       |
