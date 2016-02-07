@@ -1,10 +1,14 @@
-## Relations
+## Working with Relations
 
 Relations NeoEloquent are defined by their cardinality.
 Main relations type are:
 - One-To-One
 - One-To-Many
 - Many-To-Many
+
+And
+
+- [Polymorphic relations](https://github.com/Vinelab/neoeloquent-docs/blob/draft-docs/polymorphic-relations.md)
 
 We recommend that special care should be put into naming relations methods, as a general guidline we recommend it to be readable in a fluent context i.e. method chaining.
 
