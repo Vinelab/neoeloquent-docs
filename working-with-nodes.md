@@ -22,6 +22,12 @@ $user = User::create(
         );
 ```
 
+#### Other Creation Methods
+
+There are two other methods you may use to create nodes by mass assigning attributes: `firstOrCreate` and `firstOrNew`. The `firstOrCreate` method will attempt to locate a database record using the given property / value pairs. If the node can not be found in the database, a record will be inserted with the given attributes.
+
+The `firstOrNew` method, like `firstOrCreate` will attempt to locate a record in the database matching the given attributes. However, if a node is not found, a new node instance will be returned. Note that the node returned by `firstOrNew` has not yet been persisted to the database. You will need to call `save` manually to persist it.
+
 ### Read
 A read operation can be performed using different methods depending on the result you are looking for. We recommend that you check the [key concept] for differences amon these.
 
