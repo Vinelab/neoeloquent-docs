@@ -2,6 +2,8 @@
 
 A polymorphic relation involves three nodes: the parent (start), hyper (middle) and the related (end) nodes.
 
+![](https://s3-eu-west-1.amazonaws.com/vinelab-docs/Polymorphic+Relations.png);
+
 ### Defining Relations
 As a use case we will consider a `:User` writing a `:Comment` on a `:Post` or `:Video`.
 
