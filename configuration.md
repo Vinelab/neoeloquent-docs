@@ -66,12 +66,12 @@ The following are the parameters that will be used in a connection if no configu
        ],
        
        'slaves' => [
-            [
+            'slave-1' => [
                 'host' => 'server2.ip.address',
                 'username' => 'anotheruser',
                 'password' => 'somepass',
             ],
-            [
+            'slave-2' => [
                 'host' => 'server3.ip.address',
                 'username' => 'moreusers',
                 'password' => 'differentpass',
