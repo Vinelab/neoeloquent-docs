@@ -1,17 +1,17 @@
-- Introduction
-    - What is a graph database?
-    - What is an OGM?
-    - Why NeoEloquent?
-- Help (link to issues, Stack Overflow, Gitter chat, slack channel etc.)
-- Installation
-- Configuration
-- Nodes (what they represent in the database and specific features about them that don't belong elsewhere)
-- Key Concepts (find, get, first, naming convention, properties, date/time)
-- Getting Started (CRUD operation, basic querying including relations, mention `created_at`, `updated_at`)
-- Eager Loading, Dynamic loading (using `with`)
-- Edges/Relations
-- Running Cypher Queries
-- Schema (indexing, constraints, documentation)
-- Repositories
-- Node Labels
-- Debugging Queries (pretend persisting, logging)
+- [ ] Introduction
+    - [ ] What is a graph database?
+    - [ ] What is an OGM?
+    - [ ] Why NeoEloquent?
+- [ ] Help (link to issues, Stack Overflow, Gitter chat, slack channel etc.)
+- [ ] Installation
+- [ ] Configuration
+- [ ] Nodes (what they represent in the database and specific features about them that don't belong elsewhere)
+- [ ] Key Concepts (find, get, first, naming convention, properties, date/time)
+- [ ] Getting Started (CRUD operation, basic querying including relations, mention `created_at`, `updated_at`)
+- [ ] Eager Loading, Dynamic loading (using `with`)
+- [ ] Edges/Relations
+- [ ] Running Cypher Queries
+- [ ] Schema (indexing, constraints, documentation)
+- [ ] Repositories
+- [ ] Node Labels
+- [ ] Debugging Queries (pretend persisting, logging)
