@@ -14,4 +14,5 @@
 - [ ] Schema (indexing, constraints, documentation)
 - [ ] Repositories
 - [ ] Node Labels
+- [ ] Transactions 
 - [ ] Debugging Queries (pretend persisting, logging)
